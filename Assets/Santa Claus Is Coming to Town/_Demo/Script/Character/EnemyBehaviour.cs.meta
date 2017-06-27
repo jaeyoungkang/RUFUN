@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: af657a97800cca941a302857542a59fa
+timeCreated: 1470373637
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - BloodCube: {instanceID: 0}
+  - RagDoll: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

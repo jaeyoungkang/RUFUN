@@ -205,6 +205,10 @@ public class EnemyBehaviour : CharacterBehaviour {
             {
                 DemoStage.AddKillNum(1);
             }
+
+                DemoStage.UpdateMsg();
+                DemoStage.numOfQuiz--;                
+                Destroy(EnemySign.gameObject);                
         }
 	}
 

@@ -14,7 +14,7 @@
 		[Space(4f)]
 		public Light MainLight;
 		public Transform MainGround;
-		public Text KillNum, HighScore;
+		public Text KillNum, HighScore, Msg;
 		public Image HPBarIMG;
 		public Text HPBarTXT;
 		public Transform GameOverUI;
@@ -31,7 +31,8 @@
 		public Transform CurrentPlayer = null;
 
 
-
+        static public bool Clear = false;
+        static public int numOfQuiz = 1;
 
 		private float CurrentSpawnGap = 2f;
 		private float LastSpawnTime = -100f;
@@ -209,23 +210,60 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 				CurrentPlayer.position = Vector3.zero;
 			}
 
-			// Spawn Enemy
-			//if (Time.time > LastSpawnTime + CurrentSpawnGap) {
-			//	LastSpawnTime = Time.time;
-			//	CurrentSpawnGap *= Mathf.Lerp(0.99f, 0.999f, Mathf.Clamp01((float)CurrentEnemyNum / (float)DeadEnd));
-			//	CurrentSpawnGap = Mathf.Max(0.3f, CurrentSpawnGap);
-			//	SpawnEnemy();
-			//}
+            // Spawn Enemy
+            //if (Time.time > LastSpawnTime + CurrentSpawnGap) {
+            //	LastSpawnTime = Time.time;
+            //	CurrentSpawnGap *= Mathf.Lerp(0.99f, 0.999f, Mathf.Clamp01((float)CurrentEnemyNum / (float)DeadEnd));
+            //	CurrentSpawnGap = Mathf.Max(0.3f, CurrentSpawnGap);
+            //	SpawnEnemy();
+            //}
 
             //Alert
-   //         if (CurrentEnemyNum > DeadEnd - 10 && Time.time > PrevAlertTime + Mathf.Lerp(0.1f, 2f, (float)(DeadEnd - CurrentEnemyNum) / 10f)) {
-			//	PrevAlertTime = Time.time;
-			//	PlaySound(13, 0.6f);
-			//	MainBar.transform.localScale = Vector3.one * 1.4f;
-			//	MainLight.color = new Color(0.6f, 0.3f, 0.3f);
-			//}
+            //         if (CurrentEnemyNum > DeadEnd - 10 && Time.time > PrevAlertTime + Mathf.Lerp(0.1f, 2f, (float)(DeadEnd - CurrentEnemyNum) / 10f)) {
+            //	PrevAlertTime = Time.time;
+            //	PlaySound(13, 0.6f);
+            //	MainBar.transform.localScale = Vector3.one * 1.4f;
+            //	MainLight.color = new Color(0.6f, 0.3f, 0.3f);
+            //}
 
-		}
+            if(numOfQuiz <= 0)
+            {
+                Clear = true;
+            }
+
+            if(Clear)
+            {
+                ShowClear();
+                if (Playing)
+                {
+                    Playing = false;
+                    // UI
+                    GameOverUI.gameObject.SetActive(true);
+                    GameOverMSG.text = string.Format(
+    @"<size=70>Game Over</size>
+
+
+You Killed <color=#cc3333ff><size=50>{0}</size></color> Enemys
+
+High Score: <color=#cc3333ff><size=50>{1}</size></color>
+
+Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
+                        currentKillNum,
+                        highScore
+                    );
+                    GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
+                    // Despawn Player
+                    Destroy(CurrentPlayer.gameObject);
+                    Destroy(PlayerSign.gameObject);
+                    PlaySound(11);
+                    PlaySound(12, 2f);
+                    AimPitch = 0f;
+                }
+                return;
+            }
+
+
+        }
 
 		void SpawnEnemy () {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
@@ -392,6 +430,15 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             maxPowerUpCount++;
         }
 
+        public static void ShowClear()
+        {
+            Main.Msg.text = "Game Clear!";
+        }
+
+        public static void UpdateMsg()
+        {
+            Main.Msg.text = "Success!";
+        }
 
         public static void AddKillNum (int score) {
 			Main.currentKillNum += score;

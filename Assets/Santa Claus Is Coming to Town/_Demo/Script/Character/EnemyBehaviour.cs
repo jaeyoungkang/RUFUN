@@ -29,7 +29,7 @@ public class EnemyBehaviour : CharacterBehaviour {
         EnemySign = enemySign.transform;
         EnemySign.rotation = Camera.main.transform.rotation;
         TextMesh etm = enemySign.AddComponent<TextMesh>();
-        etm.text = "[ apple ]";
+        etm.text = "[ are working ]";
         etm.color = new Color(0.8f, 0.8f, 0.8f);
         etm.fontStyle = FontStyle.Bold;
         etm.alignment = TextAlignment.Center;

@@ -63,6 +63,16 @@
 			GameOverUI.gameObject.SetActive(true);
 		}
 
+        void GoStartMenu()
+        {
+            GameOverUI.gameObject.SetActive(true);
+					GameOverMSG.text = 
+	@"<size=70> 게임 시작</size>
+
+";
+					GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
+        }
+
 
 		void GameStart () {
 
@@ -142,6 +152,7 @@
 			// Restart
 			if ((Input.GetKeyDown(KeyCode.Return) && FirstStart && !Input.GetMouseButton(0) && !Input.GetMouseButton(1)) || (Input.GetKeyDown(KeyCode.Escape) && !Playing)) {
 				GameStart();
+                // GoStartMenu();
 			}
 
             if(currentKillNum >= goal)

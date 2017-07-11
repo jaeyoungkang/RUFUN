@@ -32,7 +32,9 @@
 
 
         static public bool Clear = false;
-        static public int numOfQuiz = 1;
+
+        static public int numOfQuiz_init = 1;
+        static public int numOfQuiz;
 
 		private float CurrentSpawnGap = 2f;
 		private float LastSpawnTime = -100f;
@@ -86,6 +88,9 @@
 
 
 		void GameStart () {
+
+            numOfQuiz = numOfQuiz_init;
+            
 
 			Playing = true;
 			if (!FirstStart) {

@@ -90,9 +90,9 @@
 		void GameStart () {
 
             numOfQuiz = numOfQuiz_init;
-            
+            Clear = false;
 
-			Playing = true;
+            Playing = true;
 			if (!FirstStart) {
 				Audio.time = 0f;
 			}
@@ -166,7 +166,7 @@
 
 
 			// Restart
-			if ((Input.GetKeyDown(KeyCode.Return) && !Input.GetMouseButton(0) && !Input.GetMouseButton(1))) {
+			if (Input.GetKeyDown(KeyCode.Return)) {
 				GameStart();
 			}
             else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)

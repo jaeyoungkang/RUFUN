@@ -66,11 +66,22 @@
         void GoStartMenu()
         {
             GameOverUI.gameObject.SetActive(true);
-					GameOverMSG.text = 
-	@"<size=70> 게임 시작</size>
+			GameOverMSG.text = @"<size=45>때리면서 배우자</size>
 
-";
-					GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
+
+
+                        정답을 몬스터를  때려서 맞추세요
+
+
+                    첫 스테이지는 현재진행형에 관한 문제입니다.
+
+
+
+
+
+
+                Press<color=#ff3333ff> [Enter] </color>to Continue";
+            GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
         }
 
 
@@ -150,12 +161,15 @@
 
 
 			// Restart
-			if ((Input.GetKeyDown(KeyCode.Return) && FirstStart && !Input.GetMouseButton(0) && !Input.GetMouseButton(1)) || (Input.GetKeyDown(KeyCode.Escape) && !Playing)) {
+			if ((Input.GetKeyDown(KeyCode.Return) && !Input.GetMouseButton(0) && !Input.GetMouseButton(1))) {
 				GameStart();
-                // GoStartMenu();
 			}
+            else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)
+            {
+                GoStartMenu();
+            }
 
-            if(currentKillNum >= goal)
+                if (currentKillNum >= goal)
             {
                 timeLeft = 20;
                 goal++;

@@ -160,7 +160,7 @@
 					// UI
 					GameOverUI.gameObject.SetActive(true);
 					GameOverMSG.text = string.Format(
-	@"<size=70>Game Over</size>
+	@"<size=70> 게임 오버</size>
 
 
 You Killed <color=#cc3333ff><size=50>{0}</size></color> Enemys
@@ -240,12 +240,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                     // UI
                     GameOverUI.gameObject.SetActive(true);
                     GameOverMSG.text = string.Format(
-    @"<size=70>Game Over</size>
+    @"<size=70>게임 클리어</size>
+    
 
-
-You Killed <color=#cc3333ff><size=50>{0}</size></color> Enemys
-
-High Score: <color=#cc3333ff><size=50>{1}</size></color>
+    축하합니다. 당신은 영어 마스터 하셨습니다.
 
 Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                         currentKillNum,

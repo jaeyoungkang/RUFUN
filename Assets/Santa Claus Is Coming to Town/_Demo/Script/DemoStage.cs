@@ -49,8 +49,9 @@
 		private bool FirstStart = true;
 		private AudioSource Audio;
 		private int combo = 0;
+        private bool firstPage = true;
 
-        
+
         private int level = 1;
         private float timeLeft = 20f;
         private int goal = 1;
@@ -67,6 +68,7 @@
 
         void GoStartMenu()
         {
+            firstPage = true;
             GameOverUI.gameObject.SetActive(true);
 			GameOverMSG.text = @"<size=45>때리면서 배우자</size>
 
@@ -166,15 +168,16 @@
 
 
 			// Restart
-			if (Input.GetKeyDown(KeyCode.Return) && FirstStart || Input.GetKeyDown(KeyCode.Escape) && !Playing) {
+			if (Input.GetKeyDown(KeyCode.Return) && firstPage) {
 				GameStart();
-			}
-            // else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)
-            // {
-            //     GoStartMenu();
-            // }
+                firstPage = false;
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)
+            {                
+                GoStartMenu();
+            }
 
-                if (currentKillNum >= goal)
+            if (currentKillNum >= goal)
             {
                 timeLeft = 20;
                 goal++;

@@ -166,13 +166,13 @@
 
 
 			// Restart
-			if (Input.GetKeyDown(KeyCode.Return)) {
+			if (Input.GetKeyDown(KeyCode.Return) && FirstStart || Input.GetKeyDown(KeyCode.Escape) && !Playing) {
 				GameStart();
 			}
-            else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)
-            {
-                GoStartMenu();
-            }
+            // else if (Input.GetKeyDown(KeyCode.Escape) && !Playing)
+            // {
+            //     GoStartMenu();
+            // }
 
                 if (currentKillNum >= goal)
             {

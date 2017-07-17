@@ -52,6 +52,7 @@
         private bool firstPage = true;
 
 
+
         private int level = 1;
         private float timeLeft = 20f;
         private int goal = 1;
@@ -70,6 +71,7 @@
             "am looking"
         };
         int currentQuiz;
+        TextMesh questionTxt;
 
         void Awake () {
 			Main = this;
@@ -128,6 +130,7 @@
 			PlayerSign = sign.transform;
 			PlayerSign.rotation = Camera.main.transform.rotation;
 			TextMesh tm = sign.AddComponent<TextMesh>();
+            questionTxt = tm;
 			tm.text = question[currentQuiz];
 //            tm.text = "[ " + Players[currentPlayerID].gameObject.name + " ]";
             tm.color = new Color(0.8f, 0.8f, 0.8f);
@@ -313,10 +316,11 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         public void NextStage()
         {
             GameOverUI.gameObject.SetActive(false);
-
+            
+            currentQuiz++;
+            questionTxt.text = question[currentQuiz];
 
             SpawnEnemy(answer[0]);
-            SpawnEnemy(answer[1]);
         }
 
 		void SpawnEnemy (string sign) {

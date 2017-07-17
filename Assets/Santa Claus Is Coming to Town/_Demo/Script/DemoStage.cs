@@ -132,7 +132,8 @@
 			KillNum.text = "0";
             //			FreshBar2();
 
-            SpawnEnemy();
+            SpawnEnemy("are working");
+            SpawnEnemy("am looking");
         }
 
 		void Update () {
@@ -296,7 +297,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         }
 
-		void SpawnEnemy () {
+		void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
 			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);
 			e.transform.rotation = Quaternion.identity;
@@ -306,7 +307,8 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 			EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
 			if (eb) {
 				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
-			}
+                eb.sign = sign;
+            }
 
             string ename = e.name + "_sign";
             GameObject enemySign = new GameObject(ename);

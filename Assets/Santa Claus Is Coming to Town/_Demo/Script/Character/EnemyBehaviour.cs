@@ -18,6 +18,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 	private float LastCheckTime = -100f;
         Transform EnemySign;
 
+        public string sign;
 
     void Start () {
 		AimMove = Vector3.zero;
@@ -29,7 +30,7 @@ public class EnemyBehaviour : CharacterBehaviour {
         EnemySign = enemySign.transform;
         EnemySign.rotation = Camera.main.transform.rotation;
         TextMesh etm = enemySign.AddComponent<TextMesh>();
-        etm.text = "[ are working ]";
+        etm.text = sign;
         etm.color = new Color(0.8f, 0.8f, 0.8f);
         etm.fontStyle = FontStyle.Bold;
         etm.alignment = TextAlignment.Center;

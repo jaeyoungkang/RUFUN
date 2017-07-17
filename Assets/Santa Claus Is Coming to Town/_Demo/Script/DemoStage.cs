@@ -118,7 +118,8 @@
 
 
 		void GameStart () {
-
+            currentQuiz = 0;
+            timeLeft = 60;
             numOfQuiz = numOfQuiz_init;
             Clear = false;
 

@@ -33,7 +33,7 @@
 
         static public bool Clear = false;
 
-        static public int numOfQuiz_init = 1;
+        static public int numOfQuiz_init = 2;
         static public int numOfQuiz;
 
 		private float CurrentSpawnGap = 2f;
@@ -58,6 +58,19 @@
 
         public int maxPowerUpCount = 1;
         public int powerUpCount = 0;
+
+        string[] question = 
+        {
+            "[ \"You (   ) hard today.\" \"Yes I have a lot to do\"  ]",
+            "I (    ) for Christine. Do youi know where she is?"
+        };
+        string[] answer = 
+        {
+            "are working",
+            "am looking"
+        };
+        int currentQuiz;
+
         void Awake () {
 			Main = this;
 			SpawnRange = new Vector2(MainGround.localScale.x * 0.45f, MainGround.localScale.z * 0.45f);
@@ -115,7 +128,7 @@
 			PlayerSign = sign.transform;
 			PlayerSign.rotation = Camera.main.transform.rotation;
 			TextMesh tm = sign.AddComponent<TextMesh>();
-			tm.text = "[ \"You (   ) hard today.\" \"Yes I have a lot to do\"  ]";
+			tm.text = question[currentQuiz];
 //            tm.text = "[ " + Players[currentPlayerID].gameObject.name + " ]";
             tm.color = new Color(0.8f, 0.8f, 0.8f);
 			tm.fontStyle = FontStyle.Bold;
@@ -132,8 +145,8 @@
 			KillNum.text = "0";
             //			FreshBar2();
 
-            SpawnEnemy("are working");
-            SpawnEnemy("am looking");
+            SpawnEnemy(answer[0]);
+            SpawnEnemy(answer[1]);
         }
 
 		void Update () {
@@ -260,7 +273,11 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             //	MainLight.color = new Color(0.6f, 0.3f, 0.3f);
             //}
 
-            if(numOfQuiz <= 0)
+            if(numOfQuiz == 1)
+            {
+                NextStage();
+            }
+            else if(numOfQuiz <= 0)
             {
                 Clear = true;
             }
@@ -295,6 +312,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             }
 
 
+        }
+        void NextStage()
+        {
+            
         }
 
 		void SpawnEnemy (string sign) {

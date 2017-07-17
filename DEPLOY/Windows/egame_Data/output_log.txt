@@ -1,0 +1,62 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(TM) Pro Graphics 5200 (ID=0xd26)
+    Vendor:   Intel
+    VRAM:     1136 MB
+    Driver:   20.19.15.4531
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.020 seconds
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\System.dll (this message is harmless)
+desktop: 2880x1800 60Hz; virtual: 2880x1800 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.257075 ms
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(TM) Pro Graphics 5200 (ID=0xd26)
+    Vendor:   Intel
+    VRAM:     1136 MB
+    Driver:   20.19.15.4531
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.021 seconds
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Gommil\Downloads\RUFUN-master\egame_Data\Managed\System.dll (this message is harmless)
+desktop: 2880x1800 60Hz; virtual: 2880x1800 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.923039 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 2344 -> priority: 1 
+  Thread -> id: 19a0 -> priority: 1 
+  Thread -> id: 245c -> priority: 1 
+  Thread -> id: dc8 -> priority: 1 
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 25ec -> priority: 1 
+  Thread -> id: 18bc -> priority: 1 
+  Thread -> id: 27b8 -> priority: 1 
+  Thread -> id: 219c -> priority: 1 

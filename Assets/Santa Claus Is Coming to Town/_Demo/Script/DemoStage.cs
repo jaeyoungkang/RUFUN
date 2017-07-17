@@ -3,6 +3,7 @@
 	using UnityEngine;
 	using UnityEngine.UI;
 	using System.Collections;
+    using System.Collections.Generic;
 
     public class DemoStage : MonoBehaviour {
 
@@ -316,8 +317,6 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         public bool IsCorrect(string pAnswer)
         {
             return answer[currentQuiz] == pAnswer;
-            // return true;
-//            return answer[currentQuiz].CompareTo(answer);
         }
 
         public void NextStage()
@@ -327,16 +326,25 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             currentQuiz++;
             questionTxt.text = question[currentQuiz];
 
+            foreach(GameObject e in enemies)
+            {
+                e.SetActive(false);
+            }
+
+            enemies.Clear();
 
             SpawnEnemy(answer[0]);
             SpawnEnemy(answer[1]);
-
         }
 
-		void SpawnEnemy (string sign) {
+        List<GameObject> enemies = new List<GameObject>();
+
+        void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
 			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);
-			e.transform.rotation = Quaternion.identity;
+            enemies.Add(e);
+
+            e.transform.rotation = Quaternion.identity;
 			e.transform.localScale = Vector3.one;
 			e.transform.position = new Vector3(Random.Range(-SpawnRange.x, SpawnRange.x), 10f, Random.Range(-SpawnRange.y, SpawnRange.y));
 

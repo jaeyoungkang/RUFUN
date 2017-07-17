@@ -273,11 +273,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             //	MainLight.color = new Color(0.6f, 0.3f, 0.3f);
             //}
 
-            if(numOfQuiz == 1)
-            {
-                NextStage();
-            }
-            else if(numOfQuiz <= 0)
+            if(numOfQuiz <= 0)
             {
                 Clear = true;
             }
@@ -313,9 +309,14 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
 
         }
-        void NextStage()
+
+        public void NextStage()
         {
-            
+            GameOverUI.gameObject.SetActive(false);
+
+
+            SpawnEnemy(answer[0]);
+            SpawnEnemy(answer[1]);
         }
 
 		void SpawnEnemy (string sign) {

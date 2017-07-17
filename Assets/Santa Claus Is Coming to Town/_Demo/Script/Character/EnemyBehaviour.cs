@@ -211,6 +211,7 @@ public class EnemyBehaviour : CharacterBehaviour {
                 {
                     DemoStage.UpdateMsg("Success!");
                     DemoStage.numOfQuiz--;
+                    DemoStage.Main.NextStage();
                 }
             else
                 {

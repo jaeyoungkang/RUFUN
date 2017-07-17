@@ -14,7 +14,7 @@
 		[Space(4f)]
 		public Light MainLight;
 		public Transform MainGround;
-		public Text KillNum, HighScore, Msg;
+		public Text KillNum, HighScore, Messsage;
 		public Image HPBarIMG;
 		public Text HPBarTXT;
 		public Transform GameOverUI;
@@ -465,12 +465,12 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         public static void ShowClear()
         {
-            Main.Msg.text = "Game Clear!";
+            Main.Messsage.text = "Game Clear!";
         }
 
-        public static void UpdateMsg()
+        public static void UpdateMsg(string resultMsg)
         {
-            Main.Msg.text = "Success!";
+            Main.Messsage.text = resultMsg;
         }
 
         public static void AddKillNum (int score) {

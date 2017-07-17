@@ -207,8 +207,16 @@ public class EnemyBehaviour : CharacterBehaviour {
                 DemoStage.AddKillNum(1);
             }
 
-                DemoStage.UpdateMsg();
-                DemoStage.numOfQuiz--;                
+            if(sign == "are working")
+                {
+                    DemoStage.UpdateMsg("Success!");
+                    DemoStage.numOfQuiz--;
+                }
+            else
+                {
+                    DemoStage.UpdateMsg("Wrong!");
+                }
+                                
                 Destroy(EnemySign.gameObject);                
         }
 	}

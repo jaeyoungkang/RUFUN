@@ -207,7 +207,7 @@ public class EnemyBehaviour : CharacterBehaviour {
                 DemoStage.AddKillNum(1);
             }
 
-            if(sign == "are working")
+            if(DemoStage.Main.IsCorrect(sign))
                 {
                     DemoStage.UpdateMsg("Success!");
                     DemoStage.numOfQuiz--;

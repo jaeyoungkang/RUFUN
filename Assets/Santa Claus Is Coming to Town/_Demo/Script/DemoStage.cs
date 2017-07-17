@@ -313,6 +313,12 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         }
 
+        public bool IsCorrect(string answer)
+        {
+            return true;
+//            return answer[currentQuiz].CompareTo(answer);
+        }
+
         public void NextStage()
         {
             GameOverUI.gameObject.SetActive(false);

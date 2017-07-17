@@ -313,9 +313,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         }
 
-        public bool IsCorrect(string answer)
+        public bool IsCorrect(string pAnswer)
         {
-            return true;
+            return answer[currentQuiz] == pAnswer;
+            // return true;
 //            return answer[currentQuiz].CompareTo(answer);
         }
 
@@ -326,7 +327,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             currentQuiz++;
             questionTxt.text = question[currentQuiz];
 
+
             SpawnEnemy(answer[0]);
+            SpawnEnemy(answer[1]);
+
         }
 
 		void SpawnEnemy (string sign) {

@@ -34,7 +34,12 @@
 
         static public bool Clear = false;
 
-        static public int numOfQuiz_init = 2;
+        static public int numOfQuiz_init
+        {
+            get{
+                return question.Length;
+            }
+        }
         static public int numOfQuiz;
 
 		private float CurrentSpawnGap = 2f;
@@ -55,21 +60,28 @@
 
 
         private int level = 1;
-        private float timeLeft = 20f;
+        private float timeLeft = 60f;
         private int goal = 1;
 
         public int maxPowerUpCount = 1;
         public int powerUpCount = 0;
 
-        string[] question = 
+        static string[] question = 
         {
             "[ \"You (   ) hard today.\" \"Yes I have a lot to do\"  ]",
-            "I (    ) for Christine. Do youi know where she is?"
+            "I (    ) for Christine. Do youi know where she is?",
+            "It (    ) dark. Shall I turn on the light?",
+            "They don't have anywhere to live at the moment. \nThey (    ) with friends until they find somewhere.",
+            "Things are not so good at work. The company (    ) money.",
+
         };
-        string[] answer = 
+        static string[] answer = 
         {
             "are working",
-            "am looking"
+            "am looking",
+            "is getting",
+            "are staying",
+            "is losing",
         };
         int currentQuiz;
         TextMesh questionTxt;
@@ -149,8 +161,10 @@
 			KillNum.text = "0";
             //			FreshBar2();
 
-            SpawnEnemy(answer[0]);
-            SpawnEnemy(answer[1]);
+            foreach (string str in answer)
+            { 
+                SpawnEnemy(str); 
+            }
         }
 
 		void Update () {
@@ -326,23 +340,25 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             currentQuiz++;
             questionTxt.text = question[currentQuiz];
 
-            foreach(GameObject e in enemies)
-            {
-                e.SetActive(false);
+            // foreach(GameObject e in enemies)
+            // {
+            //     e.SetActive(false);
+            // }
+
+            // enemies.Clear();
+
+            foreach (string str in answer)
+            { 
+                SpawnEnemy(str); 
             }
-
-            enemies.Clear();
-
-            SpawnEnemy(answer[0]);
-            SpawnEnemy(answer[1]);
         }
 
-        List<GameObject> enemies = new List<GameObject>();
+        // List<GameObject> enemies = new List<GameObject>();
 
         void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
 			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);
-            enemies.Add(e);
+            // enemies.Add(e);
 
             e.transform.rotation = Quaternion.identity;
 			e.transform.localScale = Vector3.one;

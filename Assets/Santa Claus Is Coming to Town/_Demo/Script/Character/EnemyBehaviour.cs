@@ -209,7 +209,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 
             if(DemoStage.Main.IsCorrect(sign))
                 {
-                    DemoStage.Main.UpdateMsg("Success!");
+                    DemoStage.Main.UpdateMsg("Success \n 공격력이 증가하였습니다!");
                     DemoStage.numOfQuiz--;
                     DemoStage.Main.NextStage();
                 }

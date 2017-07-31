@@ -216,6 +216,8 @@ public class EnemyBehaviour : CharacterBehaviour {
             else
                 {
                     DemoStage.UpdateMsg("Wrong!");
+					DemoStage.Main.life--;
+					DemoStage.Main.Damage();
                 }
                                 
                 Destroy(EnemySign.gameObject);                

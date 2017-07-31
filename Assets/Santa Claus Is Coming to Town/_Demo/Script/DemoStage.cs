@@ -87,6 +87,9 @@
         int currentQuiz;
         TextMesh questionTxt;
 
+        public int life;
+        public int INIT_LIFE = 5;
+
         void Awake () {
 			Main = this;
 			SpawnRange = new Vector2(MainGround.localScale.x * 0.45f, MainGround.localScale.z * 0.45f);
@@ -120,6 +123,7 @@
 
 		void GameStart () {
             currentQuiz = 0;
+            life = INIT_LIFE;
             timeLeft = INIT_TIME_LEFT;
             numOfQuiz = numOfQuiz_init;
             Clear = false;
@@ -327,7 +331,11 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                 return;
             }
 
+        }
 
+        public void Damage()
+        {
+            //life text update
         }
 
         public bool IsCorrect(string pAnswer)

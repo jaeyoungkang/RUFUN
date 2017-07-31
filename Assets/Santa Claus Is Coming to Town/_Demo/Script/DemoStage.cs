@@ -60,7 +60,8 @@
 
 
         private int level = 1;
-        private float timeLeft = 60f;
+        private float timeLeft;
+        static float INIT_TIME_LEFT = 60f*5;
         private int goal = 1;
 
         public int maxPowerUpCount = 1;
@@ -119,7 +120,7 @@
 
 		void GameStart () {
             currentQuiz = 0;
-            timeLeft = 60;
+            timeLeft = INIT_TIME_LEFT;
             numOfQuiz = numOfQuiz_init;
             Clear = false;
 
@@ -212,7 +213,7 @@
 
             if (currentKillNum >= goal)
             {
-                timeLeft = 20;
+                timeLeft = INIT_TIME_LEFT;
                 goal++;
                 level++;
                 currentKillNum = 0;

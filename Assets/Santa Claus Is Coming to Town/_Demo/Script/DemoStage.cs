@@ -523,9 +523,15 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             Main.Messsage.text = "Game Clear!";
         }
 
-        public static void UpdateMsg(string resultMsg)
+        public void UpdateMsg(string resultMsg)
         {
             Main.Messsage.text = resultMsg;
+            Invoke("DisappearMsg", 2f);
+        }
+
+        void DisappearMsg()
+        {
+            Main.Messsage.text = "";
         }
 
         public static void AddKillNum (int score) {

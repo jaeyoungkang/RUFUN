@@ -209,13 +209,13 @@ public class EnemyBehaviour : CharacterBehaviour {
 
             if(DemoStage.Main.IsCorrect(sign))
                 {
-                    DemoStage.UpdateMsg("Success!");
+                    DemoStage.Main.UpdateMsg("Success!");
                     DemoStage.numOfQuiz--;
                     DemoStage.Main.NextStage();
                 }
             else
                 {
-                    DemoStage.UpdateMsg("Wrong!");					
+                    DemoStage.Main.UpdateMsg("Wrong! \n You're Damaged!!");					
 					DemoStage.Main.Damage();
                 }
                                 

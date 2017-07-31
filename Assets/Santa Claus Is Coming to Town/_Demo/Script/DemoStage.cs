@@ -372,25 +372,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                 eb.sign = sign;
             }
 
-            string ename = e.name + "_sign";
-            GameObject enemySign = new GameObject(ename);
-            Transform EnemySign = enemySign.transform;
-            EnemySign.rotation = Camera.main.transform.rotation;
-            TextMesh etm = enemySign.AddComponent<TextMesh>();
-            etm.text = "[ Text word ]";
-            etm.color = new Color(0.8f, 0.8f, 0.8f);
-            etm.fontStyle = FontStyle.Bold;
-            etm.alignment = TextAlignment.Center;
-            etm.anchor = TextAnchor.MiddleCenter;
-            etm.characterSize = 0.065f;
-            etm.fontSize = 60;
-            e.transform.localScale = Vector3.Lerp(e.transform.localScale, Vector3.one, 0.1f);
-            EnemySign.position = e.transform.position + Vector3.up * 3f;
-
             CurrentEnemyNum++;
-
-//			FreshBar();
-
 		}
 
         public void PowerUp()

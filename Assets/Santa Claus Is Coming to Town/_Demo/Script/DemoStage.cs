@@ -20,7 +20,8 @@
 		public Text HPBarTXT;
 		public Transform GameOverUI;
 		public Text GameOverMSG;
-		public Transform MainBar;
+        public Text LifeMSG;
+        public Transform MainBar;
 		public Text _1;
 
 		[Space(4f)]
@@ -178,6 +179,7 @@
             {
                 timeLeft -= Time.deltaTime;
                 FreshBar3();
+                LifeMSG.text = "Life : " + life;
             }
             
             HighScore.text = (Mathf.Ceil(timeLeft)).ToString();
@@ -225,7 +227,7 @@
             }
 
 			// Game Over
-			if (timeLeft <= 0 || !Playing) {
+			if (life  <= 0 || timeLeft <= 0 || !Playing) {
 				if (Playing) {
 					Playing = false;
 					// UI
@@ -335,6 +337,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         public void Damage()
         {
+            life--;            
             //life text update
         }
 

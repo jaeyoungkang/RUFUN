@@ -215,8 +215,7 @@ public class EnemyBehaviour : CharacterBehaviour {
                 }
             else
                 {
-                    DemoStage.UpdateMsg("Wrong!");
-					DemoStage.Main.life--;
+                    DemoStage.UpdateMsg("Wrong!");					
 					DemoStage.Main.Damage();
                 }
                                 

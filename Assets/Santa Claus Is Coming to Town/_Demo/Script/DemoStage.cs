@@ -61,7 +61,7 @@
 
         private int level = 1;
         private float timeLeft;
-        static float INIT_TIME_LEFT = 60f*5;
+        static float INIT_TIME_LEFT = 60f;
         private int goal = 1;
 
         public int maxPowerUpCount = 1;

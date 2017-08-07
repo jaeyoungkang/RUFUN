@@ -43,7 +43,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 	protected override void Update () {
 
-            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, Vector3.one * 3, 0.1f);
+            // transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
             EnemySign.position = gameObject.transform.position + Vector3.up * 3f;
 
             AimRotation = Quaternion.Lerp(AimRotation, Quaternion.Euler(
@@ -69,7 +69,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 			base.RotateDependCamera(AimRotation);
 		}
 
-		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
+		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
 
 		if (!DemoStage.Playing && Alive) {
 			Die(transform);
@@ -80,13 +80,15 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 
 	void ChangeDir () {
-            if (gameObject.name.Contains("Tiger"))
-            {
-                AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                base.RunIfMove = Random.value < 0.7f;
-            }
-            //		AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            //		base.RunIfMove = Random.value < 0.7f;
+            // if (gameObject.name.Contains("Tiger"))
+            // {
+            //     AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            //     base.RunIfMove = Random.value < 0.7f;
+            // }
+
+
+			AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+			base.RunIfMove = Random.value < 0.7f;
         }
 
 

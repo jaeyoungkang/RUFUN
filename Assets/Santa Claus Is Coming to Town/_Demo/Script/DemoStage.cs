@@ -441,7 +441,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             // enemies.Add(e);
 
             e.transform.rotation = Quaternion.identity;
-			e.transform.localScale = Vector3.one*3;
+			e.transform.localScale = Vector3.one;
 			e.transform.position = new Vector3(Random.Range(-SpawnRange.x, SpawnRange.x), 10f, Random.Range(-SpawnRange.y, SpawnRange.y));
 
 			EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();

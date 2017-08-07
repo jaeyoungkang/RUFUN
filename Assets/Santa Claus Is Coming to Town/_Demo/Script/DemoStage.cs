@@ -441,12 +441,13 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             // enemies.Add(e);
 
             e.transform.rotation = Quaternion.identity;
-			e.transform.localScale = Vector3.one;
+			e.transform.localScale = Vector3.one*3;
 			e.transform.position = new Vector3(Random.Range(-SpawnRange.x, SpawnRange.x), 10f, Random.Range(-SpawnRange.y, SpawnRange.y));
 
 			EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
 			if (eb) {
-				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
+//				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
+                eb.MaxHP = eb.HP = 1000f;
                 eb.sign = sign;
             }
 

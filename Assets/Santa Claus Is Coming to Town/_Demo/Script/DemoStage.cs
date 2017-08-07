@@ -46,7 +46,7 @@
 
         //boss 
         static public bool BossClear = false;
-        static public int numOfBoss_init = 20;
+        static public int numOfBoss_init = 1;
         static public int numOfBoss = numOfBoss_init;
         static public int timeOfBoss = 30;
 

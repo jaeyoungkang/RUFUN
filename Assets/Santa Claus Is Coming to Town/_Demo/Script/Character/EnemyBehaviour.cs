@@ -43,7 +43,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 	protected override void Update () {
 
-            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, Vector3.one, 0.1f);
+            gameObject.transform.localScale = Vector3.Lerp(gameObject.transform.localScale, Vector3.one * 3, 0.1f);
             EnemySign.position = gameObject.transform.position + Vector3.up * 3f;
 
             AimRotation = Quaternion.Lerp(AimRotation, Quaternion.Euler(

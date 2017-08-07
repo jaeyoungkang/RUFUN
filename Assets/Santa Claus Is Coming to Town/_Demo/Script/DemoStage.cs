@@ -48,9 +48,10 @@
         static public bool BossClear = false;
         static public int numOfBoss_init = 20;
         static public int numOfBoss = numOfBoss_init;
+        static public int timeOfBoss = 30;
 
 
-		private float CurrentSpawnGap = 2f;
+        private float CurrentSpawnGap = 2f;
 		private float LastSpawnTime = -100f;
 		private float PrevAlertTime = -100f;
 		private Vector2 SpawnRange;
@@ -132,7 +133,7 @@
 		void GameStart () {
             currentQuiz = 0;
             life = INIT_LIFE;
-            timeLeft = INIT_TIME_LEFT;
+            timeLeft = INIT_TIME_LEFT;            
             numOfQuiz = numOfQuiz_init;
             Clear = false;
 
@@ -174,12 +175,19 @@
 //			HighScore.text = highScore.ToString("00");
 			KillNum.text = "0";
             //			FreshBar2();
-                        
-            SpawnBoss();
+
+
             //foreach (string str in answer)
             //{ 
             //    SpawnEnemy(str); 
             //}
+            SetupBossStage();
+        }
+
+        void SetupBossStage()
+        {
+            timeLeft = timeOfBoss;
+            SpawnBoss();
         }
 
 		void Update () {
@@ -225,14 +233,17 @@
                 GoStartMenu();
             }
 
-            if (currentKillNum >= goal)
+            if(!bossPlaying)
             {
-                timeLeft = INIT_TIME_LEFT;
-                goal++;
-                level++;
-                currentKillNum = 0;
-//                FreshBar2();
-            }
+                if (currentKillNum >= goal)
+                {
+                    timeLeft = INIT_TIME_LEFT;
+                    goal++;
+                    level++;
+                    currentKillNum = 0;
+                    //                FreshBar2();
+                }
+            }            
 
 			// Game Over
 			if (life  <= 0 || timeLeft <= 0 || !Playing) {

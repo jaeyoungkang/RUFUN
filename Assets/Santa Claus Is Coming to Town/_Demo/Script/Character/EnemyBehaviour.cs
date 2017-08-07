@@ -207,19 +207,22 @@ public class EnemyBehaviour : CharacterBehaviour {
                 DemoStage.AddKillNum(1);
             }
 
-            if(DemoStage.Main.IsCorrect(sign))
+            if (DemoStage.Main.bossPlaying == false)
+            {
+                if (DemoStage.Main.IsCorrect(sign))
                 {
                     DemoStage.Main.UpdateMsg("Success \n 공격력이 증가하였습니다!");
                     DemoStage.numOfQuiz--;
                     DemoStage.Main.NextStage();
                 }
-            else
+                else
                 {
-                    DemoStage.Main.UpdateMsg("Wrong! \n You're Damaged!!");					
-					DemoStage.Main.Damage();
+                    DemoStage.Main.UpdateMsg("Wrong! \n You're Damaged!!");
+                    DemoStage.Main.Damage();
                 }
+            }
                                 
-                Destroy(EnemySign.gameObject);                
+            Destroy(EnemySign.gameObject);                
         }
 	}
 

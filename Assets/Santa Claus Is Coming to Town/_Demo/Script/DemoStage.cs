@@ -10,9 +10,10 @@
 		public static DemoStage Main = null;
 		public static int CurrentEnemyNum = 0;
 		public static bool Playing = false;
+        public bool bossPlaying = true;
 
 
-		[Space(4f)]
+        [Space(4f)]
 		public Light MainLight;
 		public Transform MainGround;
 		public Text KillNum, HighScore, Messsage;
@@ -167,11 +168,12 @@
 //			HighScore.text = highScore.ToString("00");
 			KillNum.text = "0";
             //			FreshBar2();
-
-            foreach (string str in answer)
-            { 
-                SpawnEnemy(str); 
-            }
+                        
+            SpawnBoss();
+            //foreach (string str in answer)
+            //{ 
+            //    SpawnEnemy(str); 
+            //}
         }
 
 		void Update () {
@@ -367,6 +369,16 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         }
 
         // List<GameObject> enemies = new List<GameObject>();
+
+        void SpawnBoss()
+        {
+
+            for(int i =0; i<20; i++)
+            {
+                SpawnEnemy("boss"+i);
+            }
+        }
+
 
         void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);

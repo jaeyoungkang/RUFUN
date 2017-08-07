@@ -44,6 +44,12 @@
         }
         static public int numOfQuiz;
 
+        //boss 
+        static public bool BossClear = false;
+        static public int numOfBoss_init = 20;
+        static public int numOfBoss = numOfBoss_init;
+
+
 		private float CurrentSpawnGap = 2f;
 		private float LastSpawnTime = -100f;
 		private float PrevAlertTime = -100f;
@@ -335,6 +341,44 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                 return;
             }
 
+
+
+
+
+
+            if(numOfBoss <= 0)
+            {
+                BossClear = true;
+            }
+            if(BossClear)
+            {
+                ShowClear();
+                if (Playing)
+                {
+                    Playing = false;
+                    // UI
+                    GameOverUI.gameObject.SetActive(true);
+                    GameOverMSG.text = string.Format(
+    @"<size=70>게임 클리어</size>
+    
+
+    축하합니다. 당신은 보스 클리어 하셨습니다.
+
+Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
+                        currentKillNum,
+                        highScore
+                    );
+                    GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
+                    // Despawn Player
+                    Destroy(CurrentPlayer.gameObject);
+                    Destroy(PlayerSign.gameObject);
+                    PlaySound(11);
+                    PlaySound(12, 2f);
+                    AimPitch = 0f;
+                }
+                return;
+            }
+
         }
 
         public void Damage()
@@ -373,7 +417,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         void SpawnBoss()
         {
 
-            for(int i =0; i<20; i++)
+            for(int i =0; i<numOfBoss_init; i++)
             {
                 SpawnEnemy("boss"+i);
             }

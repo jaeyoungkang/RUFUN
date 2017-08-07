@@ -207,7 +207,11 @@ public class EnemyBehaviour : CharacterBehaviour {
                 DemoStage.AddKillNum(1);
             }
 
-            if (DemoStage.Main.bossPlaying == false)
+            if (DemoStage.Main.bossPlaying)
+			{
+				DemoStage.numOfBoss--;
+			}
+			else
             {
                 if (DemoStage.Main.IsCorrect(sign))
                 {

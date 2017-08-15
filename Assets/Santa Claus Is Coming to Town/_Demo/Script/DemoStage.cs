@@ -215,8 +215,7 @@
                 //    bossDamageImmune = !bossDamageImmune;
                 //}
 
-//                bossDamageImmune = currentPlayerID != 2;
-
+                //                bossDamageImmune = currentPlayerID != 2;
                 if (bossDamageImmune)
                 {
                     DemoStage.Main.Messsage.text = "면역!";
@@ -456,7 +455,6 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         void SpawnBoss()
         {
-
             for(int i =0; i<numOfBoss_init; i++)
             {
                 SpawnBossEnemy("boss"+i);
@@ -475,12 +473,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
             if (eb)
             {
-                //				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
                 eb.MaxHP = eb.HP = 1000f;
                 eb.sign = sign;
+                eb.isBoss = true;
             }
-
-            CurrentEnemyNum++;
         }
 
         void SpawnEnemy (string sign) {

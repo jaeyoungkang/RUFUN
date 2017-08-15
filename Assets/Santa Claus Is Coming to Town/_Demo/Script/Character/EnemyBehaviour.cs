@@ -70,16 +70,16 @@ public class EnemyBehaviour : CharacterBehaviour {
                 base.RotateDependCamera(AimRotation);
             }
 
-            // if (gameObject.name.Contains("boss"))
-            // {
-            //     transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
-            // }
-            // else
-            // {
-            //     transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
-            // }        
+            if (isBoss)
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
+            }
+            else
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
+            }
 
-		if (!DemoStage.Playing && Alive) {
+            if (!DemoStage.Playing && Alive) {
 			Die(transform);
 		}
 

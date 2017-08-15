@@ -112,6 +112,12 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 		Vector3 pos = (transform.position - tf.position).normalized * 0.2f;
 		transform.Translate(pos.x + Random.Range(-0.1f, 0.1f), 0f, pos.z + Random.Range(-0.1f, 0.1f));
+
+		if(DemoStage.Main.bossDamageImmune)
+		{
+			damage = 0;	
+		}
+
 		HP -= damage;
 		if (HP <= 0) {
 			Die(tf);

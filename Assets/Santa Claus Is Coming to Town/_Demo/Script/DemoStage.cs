@@ -11,6 +11,7 @@
 		public static int CurrentEnemyNum = 0;
 		public static bool Playing = false;
         public bool bossPlaying = true;
+        public bool bossDamageImmune = true;
 
 
         [Space(4f)]

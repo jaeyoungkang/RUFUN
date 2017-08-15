@@ -248,8 +248,14 @@ public class Weapon : Item {
 
 			if (en && !chList.Contains(en) && (chList.Count == 0 || muti)) {
 				
-                if(DemoStage.Main.bossPlaying) en.BossHurt(d, tf);
-                else en.Hurt(d, tf);
+                if(en.isBoss) 
+				{
+					en.BossHurt(d, tf);
+				}
+                else 
+				{
+					en.Hurt(d, tf);
+				}
 
 				chList.Add(en);
 			} 

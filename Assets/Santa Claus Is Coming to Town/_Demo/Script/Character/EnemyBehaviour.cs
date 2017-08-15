@@ -256,7 +256,11 @@ public class EnemyBehaviour : CharacterBehaviour {
 					Blood(tf, RedBloodCube);
 				}
 			}
-			DemoStage.CurrentEnemyNum--;
+			if(!isBoss)
+			{
+				DemoStage.Main.bossDamageImmune = false;
+			}
+			
 //			DemoStage.Main.FreshBar2();
 			
 			CameraBehaviour.CameraShake();
@@ -272,7 +276,7 @@ public class EnemyBehaviour : CharacterBehaviour {
                 DemoStage.AddKillNum(1);
             }
 
-            if (DemoStage.Main.bossPlaying)
+            if (isBoss)
 			{
 				DemoStage.numOfBoss--;
 			}

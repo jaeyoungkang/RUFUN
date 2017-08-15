@@ -477,6 +477,8 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                 eb.sign = sign;
                 eb.isBoss = true;
             }
+
+            CurrentEnemyNum++;
         }
 
         void SpawnEnemy (string sign) {

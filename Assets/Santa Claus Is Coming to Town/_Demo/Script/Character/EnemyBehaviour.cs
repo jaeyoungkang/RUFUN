@@ -112,13 +112,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 		Vector3 pos = (transform.position - tf.position).normalized * 0.2f;
 		transform.Translate(pos.x + Random.Range(-0.1f, 0.1f), 0f, pos.z + Random.Range(-0.1f, 0.1f));
 
-		if(DemoStage.Main.bossDamageImmune)
-		{
-			damage = 0;
-			DemoStage.Main.life--;
-		}
-
-		HP -= damage;
+        HP -= damage;
 		if (HP <= 0) {
 			Die(tf);
 		}
@@ -132,35 +126,79 @@ public class EnemyBehaviour : CharacterBehaviour {
 		tm.characterSize = 0.3f;
 		tm.color = new Color(0.9f, 0.3f, 0.3f, 1f);
 		Destroy(o, 1f);
-
-		if(!DemoStage.Main.bossDamageImmune)
-		{
-			int len = Random.Range(6, 14);
-			for (int i = 0; i < len; i++) {
-				Blood(tf, BloodCube);
-				if (i < len * 0.3f) {
-					Blood(tf, RedBloodCube);
-				}
+		int len = Random.Range(6, 14);
+		for (int i = 0; i < len; i++) {
+			Blood(tf, BloodCube);
+			if (i < len * 0.3f) {
+				Blood(tf, RedBloodCube);
 			}
 		}
 
 		LastHurtTime = Time.time;
 
-		//SFX
-		if(DemoStage.Main.bossDamageImmune)
-		{
-			DemoStage.PlaySound(8);
-		}
-		else
-		{
-			DemoStage.PlaySound((int)Random.Range(2f, 6.99f));
-		}
-		
+		DemoStage.PlaySound((int)Random.Range(2f, 6.99f));
 
 	}
 
+        public void BossHurt(float damage, Transform tf)
+        {
+            transform.localScale = Vector3.one * 2f;
 
-	private void Blood (Transform tf, Transform blood) {
+            Vector3 pos = (transform.position - tf.position).normalized * 0.2f;
+            transform.Translate(pos.x + Random.Range(-0.1f, 0.1f), 0f, pos.z + Random.Range(-0.1f, 0.1f));
+
+            if (DemoStage.Main.bossDamageImmune)
+            {
+                damage = 0;
+                DemoStage.Main.life--;
+            }
+
+            HP -= damage;
+            if (HP <= 0)
+            {
+                Die(tf);
+            }
+
+            // -xx
+            GameObject o = new GameObject("-x");
+            o.transform.position = transform.position + Vector3.up * Mathf.Lerp(4f, 2f, HP / MaxHP);
+            o.transform.rotation = Camera.main.transform.rotation;
+            TextMesh tm = o.AddComponent<TextMesh>();
+            tm.text = damage.ToString("00");
+            tm.characterSize = 0.3f;
+            tm.color = new Color(0.9f, 0.3f, 0.3f, 1f);
+            Destroy(o, 1f);
+
+            if (!DemoStage.Main.bossDamageImmune)
+            {
+                int len = Random.Range(6, 14);
+                for (int i = 0; i < len; i++)
+                {
+                    Blood(tf, BloodCube);
+                    if (i < len * 0.3f)
+                    {
+                        Blood(tf, RedBloodCube);
+                    }
+                }
+            }
+
+            LastHurtTime = Time.time;
+
+            //SFX
+            if (DemoStage.Main.bossDamageImmune)
+            {
+                DemoStage.PlaySound(8);
+            }
+            else
+            {
+                DemoStage.PlaySound((int)Random.Range(2f, 6.99f));
+            }
+
+
+        }
+
+
+        private void Blood (Transform tf, Transform blood) {
 		GameObject bo = Instantiate<GameObject>(blood.gameObject);
 		bo.transform.position = transform.position + Vector3.up * 1.5f;
 		bo.transform.localScale *= Random.Range(0.5f, 1.5f);

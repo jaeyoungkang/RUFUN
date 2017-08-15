@@ -12,6 +12,9 @@
 		public static bool Playing = false;
         public bool bossPlaying = true;
         public bool bossDamageImmune = true;
+        public float bossDamageTimeInit = 3f;
+        public float bossDamageTime = 3f;
+        
 
 
         [Space(4f)]
@@ -187,6 +190,7 @@
 
         void SetupBossStage()
         {
+            bossDamageTime = bossDamageTimeInit;
             timeLeft = timeOfBoss;
             SpawnBoss();
         }
@@ -197,6 +201,18 @@
                 timeLeft -= Time.deltaTime;
                 FreshBar3();
                 LifeMSG.text = "Life : " + life;
+
+                
+            }
+
+            if(bossPlaying)
+            {
+                bossDamageTime -= Time.deltaTime;
+                if (bossDamageTime <= 0)
+                {
+                    bossDamageTime = bossDamageTimeInit;
+                    bossDamageImmune = !bossDamageImmune;
+                }
             }
             
             HighScore.text = (Mathf.Ceil(timeLeft)).ToString();

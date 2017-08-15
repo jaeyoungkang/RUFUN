@@ -107,7 +107,6 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 
 	public void Hurt (float damage, Transform tf) {
-
 		transform.localScale = Vector3.one * 2f;
 
 		Vector3 pos = (transform.position - tf.position).normalized * 0.2f;

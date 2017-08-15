@@ -114,7 +114,8 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 		if(DemoStage.Main.bossDamageImmune)
 		{
-			damage = 0;	
+			damage = 0;
+			DemoStage.Main.life--;
 		}
 
 		HP -= damage;
@@ -132,18 +133,29 @@ public class EnemyBehaviour : CharacterBehaviour {
 		tm.color = new Color(0.9f, 0.3f, 0.3f, 1f);
 		Destroy(o, 1f);
 
-		int len = Random.Range(6, 14);
-		for (int i = 0; i < len; i++) {
-			Blood(tf, BloodCube);
-			if (i < len * 0.3f) {
-				Blood(tf, RedBloodCube);
+		if(!DemoStage.Main.bossDamageImmune)
+		{
+			int len = Random.Range(6, 14);
+			for (int i = 0; i < len; i++) {
+				Blood(tf, BloodCube);
+				if (i < len * 0.3f) {
+					Blood(tf, RedBloodCube);
+				}
 			}
 		}
 
 		LastHurtTime = Time.time;
 
 		//SFX
-		DemoStage.PlaySound((int)Random.Range(2f, 6.99f));
+		if(DemoStage.Main.bossDamageImmune)
+		{
+			DemoStage.PlaySound(8);
+		}
+		else
+		{
+			DemoStage.PlaySound((int)Random.Range(2f, 6.99f));
+		}
+		
 
 	}
 

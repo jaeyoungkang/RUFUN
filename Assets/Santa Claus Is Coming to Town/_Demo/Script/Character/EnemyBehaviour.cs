@@ -10,6 +10,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 	public float HP = 1f;
 	[HideInInspector]
 	public float MaxHP = 1f;
+	public bool isBoss = false;
 
 	private Vector2 AimMove;
 	private Quaternion AimRotation;
@@ -69,14 +70,14 @@ public class EnemyBehaviour : CharacterBehaviour {
                 base.RotateDependCamera(AimRotation);
             }
 
-            if (gameObject.name.Contains("boss"))
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
-            }
-            else
-            {
-                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
-            }        
+            // if (gameObject.name.Contains("boss"))
+            // {
+            //     transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
+            // }
+            // else
+            // {
+            //     transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
+            // }        
 
 		if (!DemoStage.Playing && Alive) {
 			Die(transform);

@@ -247,8 +247,10 @@ public class Weapon : Item {
 			EnemyBehaviour en = hits[i].transform.GetComponent<EnemyBehaviour>();
 
 			if (en && !chList.Contains(en) && (chList.Count == 0 || muti)) {
+				
                 if(DemoStage.Main.bossPlaying) en.BossHurt(d, tf);
                 else en.Hurt(d, tf);
+
 				chList.Add(en);
 			} 
 

@@ -41,35 +41,42 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 
 
-	protected override void Update () {
+        protected override void Update() {
 
             // transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
             EnemySign.position = gameObject.transform.position + Vector3.up * 3f;
 
             AimRotation = Quaternion.Lerp(AimRotation, Quaternion.Euler(
-			0f, (AimMove.x > 0f ? 1f : -1f) * Vector2.Angle(Vector2.up, AimMove) + 180f, 0f
-		), 0.2f);
+            0f, (AimMove.x > 0f ? 1f : -1f) * Vector2.Angle(Vector2.up, AimMove) + 180f, 0f
+        ), 0.2f);
 
-		if (Time.time > LastCheckTime + 1f) {
-			LastCheckTime = Time.time;
-			ChangeDir();
-			DashMaybe();
-			JumpMaybe();
-		}
+            if (Time.time > LastCheckTime + 1f) {
+                LastCheckTime = Time.time;
+                ChangeDir();
+                DashMaybe();
+                JumpMaybe();
+            }
 
-		if (Time.time - LastHurtTime < 0.3f) {
-			base.RotateDependCamera(Quaternion.Euler(Random.Range(-90f, 90f), AimRotation.eulerAngles.y, Random.Range(-90f, 90f)));
-			base.Stop();
-		} else {
-			if (base.RunIfMove) {
-				base.RunDependCamera(AimMove);
-			} else {
-				base.WalkDependCamera(AimMove);
-			}
-			base.RotateDependCamera(AimRotation);
-		}
+            if (Time.time - LastHurtTime < 0.3f) {
+                base.RotateDependCamera(Quaternion.Euler(Random.Range(-90f, 90f), AimRotation.eulerAngles.y, Random.Range(-90f, 90f)));
+                base.Stop();
+            } else {
+                if (base.RunIfMove) {
+                    base.RunDependCamera(AimMove);
+                } else {
+                    base.WalkDependCamera(AimMove);
+                }
+                base.RotateDependCamera(AimRotation);
+            }
 
-		transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
+            if (gameObject.name.Contains("boss"))
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
+            }
+            else
+            {
+                transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);
+            }        
 
 		if (!DemoStage.Playing && Alive) {
 			Die(transform);

@@ -193,6 +193,7 @@
             bossDamageTime = bossDamageTimeInit;
             timeLeft = timeOfBoss;
             SpawnBoss();
+            SpawnEnemy("조무라기");
         }
 
 		void Update () {
@@ -207,21 +208,23 @@
 
             if(bossPlaying)
             {
-                bossDamageTime -= Time.deltaTime;
-                if (bossDamageTime <= 0)
-                {
-                    bossDamageTime = bossDamageTimeInit;
-                    bossDamageImmune = !bossDamageImmune;
-                }
+                //bossDamageTime -= Time.deltaTime;
+                //if (bossDamageTime <= 0)
+                //{
+                //    bossDamageTime = bossDamageTimeInit;
+                //    bossDamageImmune = !bossDamageImmune;
+                //}
 
-                if(bossDamageImmune)
+//                bossDamageImmune = currentPlayerID != 2;
+
+                if (bossDamageImmune)
                 {
                     DemoStage.Main.Messsage.text = "면역!";
                 }
                 else
                 {
                     DemoStage.Main.Messsage.text = "";
-                }
+                }                
             }
             
             HighScore.text = (Mathf.Ceil(timeLeft)).ToString();
@@ -456,15 +459,33 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
             for(int i =0; i<numOfBoss_init; i++)
             {
-                SpawnEnemy("boss"+i);
+                SpawnBossEnemy("boss"+i);
             }
         }
 
+        void SpawnBossEnemy(string sign)
+        {
+            float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
+            GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);
+
+            e.transform.rotation = Quaternion.identity;
+            e.transform.localScale = Vector3.one;
+            e.transform.position = new Vector3(Random.Range(-SpawnRange.x, SpawnRange.x), 10f, Random.Range(-SpawnRange.y, SpawnRange.y));
+
+            EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
+            if (eb)
+            {
+                //				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
+                eb.MaxHP = eb.HP = 1000f;
+                eb.sign = sign;
+            }
+
+            CurrentEnemyNum++;
+        }
 
         void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
-			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);
-            // enemies.Add(e);
+			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);            
 
             e.transform.rotation = Quaternion.identity;
 			e.transform.localScale = Vector3.one;
@@ -472,8 +493,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
 			EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
 			if (eb) {
-//				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
-                eb.MaxHP = eb.HP = 1000f;
+				eb.MaxHP = eb.HP = (id % 3f) * 20f + 40f;
                 eb.sign = sign;
             }
 

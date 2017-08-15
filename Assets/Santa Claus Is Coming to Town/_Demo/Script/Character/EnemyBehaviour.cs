@@ -150,7 +150,7 @@ public class EnemyBehaviour : CharacterBehaviour {
             if (DemoStage.Main.bossDamageImmune)
             {
                 damage = 0;
-                DemoStage.Main.life--;
+                // DemoStage.Main.life--;
             }
 
             HP -= damage;

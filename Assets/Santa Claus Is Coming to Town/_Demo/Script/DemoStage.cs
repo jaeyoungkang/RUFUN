@@ -213,6 +213,15 @@
                     bossDamageTime = bossDamageTimeInit;
                     bossDamageImmune = !bossDamageImmune;
                 }
+
+                if(bossDamageImmune)
+                {
+                    DemoStage.Main.Messsage.text = "면역!";
+                }
+                else
+                {
+                    DemoStage.Main.Messsage.text = "";
+                }
             }
             
             HighScore.text = (Mathf.Ceil(timeLeft)).ToString();

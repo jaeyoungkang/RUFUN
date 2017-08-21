@@ -190,6 +190,7 @@
 
         void SetupBossStage()
         {
+            bossPlaying = true;
             bossDamageTime = bossDamageTimeInit;
             timeLeft = timeOfBoss;
             SpawnBoss();
@@ -439,6 +440,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         public void NextStage()
         {
             GameOverUI.gameObject.SetActive(false);
+            numOfQuiz--;
             currentQuiz++;
             questionTxt.text = question[currentQuiz];
             foreach (string str in answer)

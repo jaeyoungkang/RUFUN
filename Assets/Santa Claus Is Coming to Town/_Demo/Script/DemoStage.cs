@@ -12,8 +12,8 @@
 		public static bool Playing = false;
         public bool bossPlaying = true;
         public bool bossDamageImmune = true;
-        public float bossDamageTimeInit = 10f;
-        public float bossDamageTime = 3f;
+        private float bossDamageTimeInit = 10f;
+        private float bossDamageTime;
         
 
 

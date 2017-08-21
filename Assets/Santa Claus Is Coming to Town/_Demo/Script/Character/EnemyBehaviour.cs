@@ -76,7 +76,12 @@ public class EnemyBehaviour : CharacterBehaviour {
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
 
                 //update hp
-                etm.text = "BOSS\nHP: " + HP.ToString("n0");
+                string hpTxt = "BOSS\nHP: " + HP.ToString("n0");
+                if(DemoStage.Main.bossDamageImmune)
+                {
+                    hpTxt = "<color='#ff0000'>" + hpTxt + "</color>";
+                }
+                etm.text = hpTxt;
             } 
             else
             {

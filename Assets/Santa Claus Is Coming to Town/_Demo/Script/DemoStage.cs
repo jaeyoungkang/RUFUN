@@ -12,7 +12,7 @@
 		public static bool Playing = false;
         public bool bossPlaying = true;
         public bool bossDamageImmune = true;
-        public float bossDamageTimeInit = 3f;
+        public float bossDamageTimeInit = 10f;
         public float bossDamageTime = 3f;
         
 
@@ -211,15 +211,17 @@
 
             if(bossPlaying)
             {
-                //bossDamageTime -= Time.deltaTime;
-                //if (bossDamageTime <= 0)
-                //{
-                //    bossDamageTime = bossDamageTimeInit;
-                //    bossDamageImmune = !bossDamageImmune;
-                //}
+                if(bossDamageImmune == false)
+                {
+                    bossDamageTime -= Time.deltaTime;
+                    if (bossDamageTime <= 0)
+                    {
+                        bossDamageTime = bossDamageTimeInit;
+                        bossDamageImmune = true;
+                    }
+                }               
 
-                //                bossDamageImmune = currentPlayerID != 2;
-                
+
                 string quizMsg = "<size=15>" + question[currentQuiz] +"</size>";
                 if (bossDamageImmune)
                 {
@@ -227,7 +229,7 @@
                 }
                 else
                 {
-                    DemoStage.Main.Messsage.text = "";
+                    DemoStage.Main.Messsage.text = bossDamageTime.ToString("n0");
                 }                
             }
             

@@ -20,7 +20,7 @@
         [Space(4f)]
 		public Light MainLight;
 		public Transform MainGround;
-		public Text KillNum, HighScore, Messsage;
+		public Text KillNum, HighScore, Messsage, MessageBoss;
 		public Image HPBarIMG;
 		public Text HPBarTXT;
 		public Transform GameOverUI;
@@ -136,7 +136,12 @@
 
 
 		void GameStart () {
-
+            GameObject enemies = GameObject.FindGameObjectWithTag("Enemies");
+            foreach (Transform child in enemies.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            
             currentQuiz = 0;
             life = INIT_LIFE;
             timeLeft = INIT_TIME_LEFT;            
@@ -222,32 +227,36 @@
             }
         }
 
+        void UpdateMessageBoss()
+        {
+            string quizMsg = "<size=15>" + question[currentQuiz] + "</size>";
+            if (bossDamageImmune)
+            {
+                DemoStage.Main.MessageBoss.text = quizMsg + "\n면역!\n문제를 풀어야 면역이 풀림";
+            }
+            else
+            {
+                DemoStage.Main.MessageBoss.text = bossDamageTime.ToString("n0");
+            }
+        }
+
 		void Update () {
-            if(Playing)
+            DemoStage.Main.MessageBoss.text = "";
+
+
+            if (Playing)
             {
                 timeLeft -= Time.deltaTime;
                 FreshBar3();
-                LifeMSG.text = "Life : " + life;
-
-                
+                LifeMSG.text = "Life : " + life;                
             }
 
             if(bossPlaying)
             {
-                BossImmnueTimer();         
-
-
-                string quizMsg = "<size=15>" + question[currentQuiz] +"</size>";
-                if (bossDamageImmune)
-                {
-                    DemoStage.Main.Messsage.text = quizMsg + "\n면역!\n문제를 풀어야 면역이 풀림";
-                }
-                else
-                {
-                    DemoStage.Main.Messsage.text = bossDamageTime.ToString("n0");
-                }                
+                BossImmnueTimer();
+                UpdateMessageBoss();
             }
-            
+
             HighScore.text = (Mathf.Ceil(timeLeft)).ToString();
 
             // Audio Lerp

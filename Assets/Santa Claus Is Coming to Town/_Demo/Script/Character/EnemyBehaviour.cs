@@ -40,7 +40,8 @@ public class EnemyBehaviour : CharacterBehaviour {
         etm.alignment = TextAlignment.Center;
         etm.anchor = TextAnchor.MiddleCenter;
         etm.characterSize = 0.065f;
-        etm.fontSize = 60;            
+        etm.fontSize = 60;
+            EnemySign.SetParent(GameObject.FindGameObjectWithTag("Enemies").transform);
         }
 
 

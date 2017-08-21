@@ -18,14 +18,20 @@ public class CameraBehaviour : MonoBehaviour {
 	private const float gap = 1f;
 
 
-	void Awake () {
-		Camera.main.orthographic = true;
-		CameraShaker = Camera.main.transform.parent;
-		CameraSize = Camera.main.orthographicSize;
-	}
-	
-	
-	void Update () {
+	//void Awake () {
+	//	Camera.main.orthographic = true;
+	//	CameraShaker = Camera.main.transform.parent;
+	//	CameraSize = Camera.main.orthographicSize;
+	//}
+
+    void Awake()
+    {
+        Camera.main.orthographic = false;
+        CameraShaker = Camera.main.transform.parent;        
+    }
+
+
+        void Update () {
 		// Shaker
 		CameraShaker.localPosition *= -0.8f;
 		Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, CameraSize, 0.15f);

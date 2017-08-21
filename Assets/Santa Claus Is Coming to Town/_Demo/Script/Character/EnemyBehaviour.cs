@@ -268,7 +268,10 @@ public class EnemyBehaviour : CharacterBehaviour {
 			if(!isBoss)
 			{
                 if (DemoStage.Main.IsCorrect(sign))
+                {
                     DemoStage.Main.bossDamageImmune = false;
+                    StartCoroutine(bossImmuneTimer());
+                }
 			}
 			
 //			DemoStage.Main.FreshBar2();
@@ -308,6 +311,13 @@ public class EnemyBehaviour : CharacterBehaviour {
             Destroy(EnemySign.gameObject);                
         }
 	}
+
+    IEnumerator bossImmuneTimer()
+    {
+        Debug.Log("BOSS IMMNUE GO");
+        yield return new WaitForSeconds(5f);
+        DemoStage.Main.bossDamageImmune = true;
+    }
 
 }
 }

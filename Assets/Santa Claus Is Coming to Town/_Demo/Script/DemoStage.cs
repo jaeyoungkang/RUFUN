@@ -216,9 +216,11 @@
                 //}
 
                 //                bossDamageImmune = currentPlayerID != 2;
+                
+                string quizMsg = "<size=15>" + question[currentQuiz] +"</size>";
                 if (bossDamageImmune)
                 {
-                    DemoStage.Main.Messsage.text = "면역!";
+                    DemoStage.Main.Messsage.text = quizMsg + "면역!";
                 }
                 else
                 {

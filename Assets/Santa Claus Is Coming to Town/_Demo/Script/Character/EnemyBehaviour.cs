@@ -17,12 +17,13 @@ public class EnemyBehaviour : CharacterBehaviour {
 	private bool Alive = true;
 	private float LastHurtTime = -100f;
 	private float LastCheckTime = -100f;
-        Transform EnemySign;
+        
 
         public string sign;
         public TextMesh etm;
+        Transform EnemySign;
 
-    void Start () {
+        void Start () {
 		AimMove = Vector3.zero;
 		AimRotation = Quaternion.identity;
 		Alive = true;
@@ -275,7 +276,6 @@ public class EnemyBehaviour : CharacterBehaviour {
                 if (DemoStage.Main.IsCorrect(sign))
                 {
                     DemoStage.Main.bossDamageImmune = false;
-                    StartCoroutine(bossImmuneTimer());
                 }
 			}
 			
@@ -284,16 +284,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 			CameraBehaviour.CameraShake();
 			DemoStage.PlaySound(1);
 			DemoStage.Main.Invoke("PlayDieoutSound", 0.6f);
-            if(gameObject.name.Contains("Tiger"))
-            {
-                DemoStage.Main.AddWeaponPower2();
-                DemoStage.AddKillNum(2);
-            }
-            else
-            {
-                DemoStage.AddKillNum(1);
-            }
-
+        
             if (isBoss)
 			{
 				DemoStage.numOfBoss--;
@@ -312,8 +303,7 @@ public class EnemyBehaviour : CharacterBehaviour {
                 }
             }
                                 
-            Destroy(EnemySign.gameObject); 
-            Destroy(etm);               
+            Destroy(EnemySign.gameObject);
         }
 	}
 

@@ -92,15 +92,20 @@ public class EnemyBehaviour : CharacterBehaviour {
 
 
 	void ChangeDir () {
-            // if (gameObject.name.Contains("Tiger"))
-            // {
-            //     AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-            //     base.RunIfMove = Random.value < 0.7f;
-            // }
-
-
-			AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-			base.RunIfMove = Random.value < 0.7f;
+            if(DemoStage.Main.bossPlaying)
+            {
+                if(isBoss)
+                {
+                    AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                    base.RunIfMove = Random.value < 0.7f;
+                }                
+            }
+            else
+            {
+                AimMove = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                base.RunIfMove = Random.value < 0.7f;
+            }
+            
         }
 
 

@@ -201,6 +201,20 @@
             questionTxt.text = "";
         }
 
+        void BossImmnueTimer()
+        {
+            if(bossDamageImmune == false)
+            {
+                bossDamageTime -= Time.deltaTime;
+                if (bossDamageTime <= 0)
+                {
+                    bossDamageTime = bossDamageTimeInit;
+                    bossDamageImmune = true;
+                    NextQuiz();
+                }
+            }
+        }
+
 		void Update () {
             if(Playing)
             {
@@ -213,15 +227,7 @@
 
             if(bossPlaying)
             {
-                if(bossDamageImmune == false)
-                {
-                    bossDamageTime -= Time.deltaTime;
-                    if (bossDamageTime <= 0)
-                    {
-                        bossDamageTime = bossDamageTimeInit;
-                        bossDamageImmune = true;
-                    }
-                }               
+                BossImmnueTimer();         
 
 
                 string quizMsg = "<size=15>" + question[currentQuiz] +"</size>";
@@ -355,11 +361,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             //	MainLight.color = new Color(0.6f, 0.3f, 0.3f);
             //}
 
-            if(numOfQuiz <= 0)
-            {
-                numOfQuiz = numOfQuiz_init;
-                SetupBossStage();
-            }
+            
 
             if(Clear)
             {
@@ -439,14 +441,30 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         public void NextStage()
         {
+            if(bossPlaying)
+            {
+                return;
+            }
+
             GameOverUI.gameObject.SetActive(false);
             numOfQuiz--;
-            currentQuiz++;
-            questionTxt.text = question[currentQuiz];
+            NextQuiz();
             foreach (string str in answer)
             {
                 SpawnEnemy(str);
             }
+
+            if(numOfQuiz <= 0)
+            {
+                numOfQuiz = numOfQuiz_init;
+                SetupBossStage();
+            }
+        }
+
+        void NextQuiz()
+        {
+            currentQuiz++;
+            questionTxt.text = question[currentQuiz];
         }
 
         // List<GameObject> enemies = new List<GameObject>();

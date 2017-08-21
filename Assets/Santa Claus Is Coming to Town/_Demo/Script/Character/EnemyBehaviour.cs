@@ -28,6 +28,7 @@ public class EnemyBehaviour : CharacterBehaviour {
 		AimRotation = Quaternion.identity;
 		Alive = true;
 
+        
         string ename = gameObject.name + "_sign";
         GameObject enemySign = new GameObject(ename);
         EnemySign = enemySign.transform;

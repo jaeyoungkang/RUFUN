@@ -508,6 +508,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         void SpawnEnemy (string sign) {
 			float id = Random.Range(0f, (float)Enemys.Length - 0.01f);
 			GameObject e = Instantiate<GameObject>(Enemys[(int)id].gameObject);            
+            e.transform.SetParent( GameObject.FindGameObjectWithTag("Enemies").transform );
 
             e.transform.rotation = Quaternion.identity;
 			e.transform.localScale = Vector3.one;

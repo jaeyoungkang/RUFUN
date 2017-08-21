@@ -181,11 +181,12 @@
             //			FreshBar2();
 
 
-            //foreach (string str in answer)
-            //{ 
-            //    SpawnEnemy(str); 
-            //}
-            SetupBossStage();
+            foreach (string str in answer)
+            {
+                SpawnEnemy(str);
+            }
+
+            // SetupBossStage();
         }
 
         void SetupBossStage()
@@ -355,7 +356,9 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
             if(numOfQuiz <= 0)
             {
-                Clear = true;
+                numOfQuiz = numOfQuiz_init;
+                SetupBossStage();
+//                Clear = true;
             }
 
             if(Clear)
@@ -386,10 +389,6 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
                 }
                 return;
             }
-
-
-
-
 
 
             if(numOfBoss <= 0)
@@ -441,20 +440,11 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         public void NextStage()
         {
             GameOverUI.gameObject.SetActive(false);
-            
             currentQuiz++;
             questionTxt.text = question[currentQuiz];
-
-            // foreach(GameObject e in enemies)
-            // {
-            //     e.SetActive(false);
-            // }
-
-            // enemies.Clear();
-
             foreach (string str in answer)
-            { 
-                SpawnEnemy(str); 
+            {
+                SpawnEnemy(str);
             }
         }
 

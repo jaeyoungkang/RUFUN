@@ -73,6 +73,10 @@ public class EnemyBehaviour : CharacterBehaviour {
             if (isBoss)
             {
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
+                
+                //update hp
+                sign = HP.ToString();
+
             }
             else
             {

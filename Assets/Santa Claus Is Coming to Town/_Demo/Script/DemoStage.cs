@@ -193,7 +193,10 @@
             bossDamageTime = bossDamageTimeInit;
             timeLeft = timeOfBoss;
             SpawnBoss();
-            SpawnEnemy(answer[currentQuiz]);
+            for(int i=0;i<answer.Length;i++)
+            {
+                SpawnEnemy(answer[i]);
+            }
         }
 
 		void Update () {

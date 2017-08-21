@@ -43,7 +43,8 @@
         static public int numOfQuiz_init
         {
             get{
-                return question.Length;
+                // return question.Length;
+                return 1;
             }
         }
         static public int numOfQuiz;
@@ -185,8 +186,6 @@
             {
                 SpawnEnemy(str);
             }
-
-            // SetupBossStage();
         }
 
         void SetupBossStage()
@@ -198,6 +197,7 @@
             {
                 SpawnEnemy(answer[i]);
             }
+            questionTxt.text = "";
         }
 
 		void Update () {
@@ -358,7 +358,6 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             {
                 numOfQuiz = numOfQuiz_init;
                 SetupBossStage();
-//                Clear = true;
             }
 
             if(Clear)

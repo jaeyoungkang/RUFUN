@@ -20,6 +20,7 @@ public class EnemyBehaviour : CharacterBehaviour {
         Transform EnemySign;
 
         public string sign;
+        public TextMesh etm;
 
     void Start () {
 		AimMove = Vector3.zero;
@@ -30,7 +31,7 @@ public class EnemyBehaviour : CharacterBehaviour {
         GameObject enemySign = new GameObject(ename);
         EnemySign = enemySign.transform;
         EnemySign.rotation = Camera.main.transform.rotation;
-        TextMesh etm = enemySign.AddComponent<TextMesh>();
+        etm = enemySign.AddComponent<TextMesh>();
         etm.text = sign;
         etm.color = new Color(0.8f, 0.8f, 0.8f);
         etm.fontStyle = FontStyle.Bold;
@@ -73,11 +74,10 @@ public class EnemyBehaviour : CharacterBehaviour {
             if (isBoss)
             {
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one * 3, 0.1f);
-                
-                //update hp
-                sign = HP.ToString();
 
-            }
+                //update hp
+                etm.text = "BOSS\nHP: " + HP.ToString("n0");
+            } 
             else
             {
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.one, 0.1f);

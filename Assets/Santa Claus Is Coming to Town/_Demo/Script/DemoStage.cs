@@ -193,7 +193,7 @@
             bossDamageTime = bossDamageTimeInit;
             timeLeft = timeOfBoss;
             SpawnBoss();
-            SpawnEnemy("조무라기");
+            SpawnEnemy(answer[currentQuiz]);
         }
 
 		void Update () {
@@ -220,7 +220,7 @@
                 string quizMsg = "<size=15>" + question[currentQuiz] +"</size>";
                 if (bossDamageImmune)
                 {
-                    DemoStage.Main.Messsage.text = quizMsg + "면역!";
+                    DemoStage.Main.Messsage.text = quizMsg + "\n면역!\n문제를 풀어야 면역이 풀림";
                 }
                 else
                 {

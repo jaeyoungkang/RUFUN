@@ -258,7 +258,8 @@ public class EnemyBehaviour : CharacterBehaviour {
 			}
 			if(!isBoss)
 			{
-				DemoStage.Main.bossDamageImmune = false;
+                if (DemoStage.Main.IsCorrect(sign))
+                    DemoStage.Main.bossDamageImmune = false;
 			}
 			
 //			DemoStage.Main.FreshBar2();

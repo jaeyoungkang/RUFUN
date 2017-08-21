@@ -411,7 +411,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
     축하합니다. 당신은 보스 클리어 하셨습니다.
 
-Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
+ <size=50><color=#cc3333ff>[ESC]</color></size> 키를 누르면 첫화면으로 갑니다.",
                         currentKillNum,
                         highScore
                     );
@@ -449,6 +449,8 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             GameOverUI.gameObject.SetActive(false);
             numOfQuiz--;
             NextQuiz();
+            questionTxt.text = question[currentQuiz];
+
             foreach (string str in answer)
             {
                 SpawnEnemy(str);
@@ -463,8 +465,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
 
         void NextQuiz()
         {
-            currentQuiz++;
-            questionTxt.text = question[currentQuiz];
+            currentQuiz++;            
         }
 
         // List<GameObject> enemies = new List<GameObject>();
@@ -489,7 +490,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
             if (eb)
             {
-                eb.MaxHP = eb.HP = 1000f;
+                eb.MaxHP = eb.HP = 100f;
                 eb.sign = sign;
                 eb.isBoss = true;
             }

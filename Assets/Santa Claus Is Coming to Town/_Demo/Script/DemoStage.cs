@@ -136,11 +136,18 @@
 
 
 		void GameStart () {
+
             currentQuiz = 0;
             life = INIT_LIFE;
             timeLeft = INIT_TIME_LEFT;            
             numOfQuiz = numOfQuiz_init;
             Clear = false;
+
+            //boss Init
+            numOfBoss = numOfBoss_init;
+            BossClear = false;
+            bossPlaying = false;
+            bossDamageImmune = true;
 
             Playing = true;
 			if (!FirstStart) {

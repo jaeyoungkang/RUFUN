@@ -312,7 +312,8 @@ public class EnemyBehaviour : CharacterBehaviour {
                 }
             }
                                 
-            Destroy(EnemySign.gameObject);                
+            Destroy(EnemySign.gameObject); 
+            Destroy(etm);               
         }
 	}
 

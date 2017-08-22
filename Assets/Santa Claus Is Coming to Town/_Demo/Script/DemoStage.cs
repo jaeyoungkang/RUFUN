@@ -14,7 +14,9 @@
         public bool bossDamageImmune = true;
         private float bossDamageTimeInit = 10f;
         private float bossDamageTime;
-        
+
+        public float Power = 1;
+
 
 
         [Space(4f)]

@@ -182,17 +182,8 @@ public class Weapon : Item {
 			h = chc.height;
 			r = chc.radius;
 		}
-
-            float addDamage = 0f;
-            if(DemoStage.Main.powerUpCount > 0)
-            {
-                addDamage = 100f;
-                DemoStage.Main.powerUpCount--;
-            }
-
-            MakeAttack(tf, h, r, WeaponInfo.Damage + addDamage, false);
-            //		MakeAttack(tf, h, r, WeaponInfo.Damage + DemoStage.Main.GetWeaponPower1(), false);
-
+        
+            MakeAttack(tf, h, r, WeaponInfo.Damage + DemoStage.Main.Power, false);
         }
 
 

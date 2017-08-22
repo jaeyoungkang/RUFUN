@@ -47,8 +47,8 @@
         static public int numOfQuiz_init
         {
             get{
-                // return question.Length;
-                return 1;   //temp
+                return question.Length;
+                //return 1;   //temp
             }
         }
         static public int numOfQuiz;
@@ -125,7 +125,9 @@
         {
             firstPage = true;
             GameOverUI.gameObject.SetActive(true);
+            GameOverUI.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.5f);
             startMsg.SetActive(true);
+            Messsage.text = "";
         }
 
 
@@ -488,6 +490,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
         void NextQuiz()
         {
             currentQuiz++;            
+            if(currentQuiz >= question.Length) currentQuiz = 0;
         }
 
         // List<GameObject> enemies = new List<GameObject>();

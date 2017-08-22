@@ -48,7 +48,7 @@
         {
             get{
                 // return question.Length;
-                return 2;   //temp
+                return 1;   //temp
             }
         }
         static public int numOfQuiz;
@@ -109,6 +109,7 @@
         public int INIT_LIFE = 5;
 
         public GameObject startMsg;
+        public GameObject bossStart;
         public UpgradePage upgradePage;
 
         void Awake () {
@@ -129,6 +130,7 @@
 
 
 		void GameStart () {
+            startMsg.SetActive(false);
             GameObject enemies = GameObject.FindGameObjectWithTag("Enemies");
             foreach (Transform child in enemies.transform)
             {
@@ -204,6 +206,13 @@
                 SpawnEnemy(answer[i]);
             }
             questionTxt.text = "";
+            bossStart.SetActive(true);
+            Invoke("HideBossStart", 3f);
+        }
+
+        void HideBossStart()
+        {
+            bossStart.SetActive(false);
         }
 
         void BossImmnueTimer()
@@ -503,7 +512,7 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             EnemyBehaviour eb = e.GetComponent<EnemyBehaviour>();
             if (eb)
             {
-                eb.MaxHP = eb.HP = 100f;
+                eb.MaxHP = eb.HP = 1000f;
                 eb.sign = sign;
                 eb.isBoss = true;
             }

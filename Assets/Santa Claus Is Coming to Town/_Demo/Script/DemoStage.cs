@@ -104,33 +104,38 @@
         public int life;
         public int INIT_LIFE = 5;
 
+        public GameObject startMsg;
+
         void Awake () {
 			Main = this;
 			SpawnRange = new Vector2(MainGround.localScale.x * 0.45f, MainGround.localScale.z * 0.45f);
 			LightColor = MainLight.color;
 			Audio = GetComponent<AudioSource>();
 			GameOverUI.gameObject.SetActive(true);
+            GoStartMenu();
 		}
 
         void GoStartMenu()
         {
             firstPage = true;
             GameOverUI.gameObject.SetActive(true);
-			GameOverMSG.text = @"<size=45>때리면서 배우자</size>
+            startMsg.SetActive(true);
+
+			// GameOverMSG.text = @"<size=45>히트 앤드 런</size>
 
 
 
-                        정답을 몬스터를  때려서 맞추세요
+            //             정답을 몬스터를  때려서 맞추세요
 
 
-                    첫 스테이지는 현재진행형에 관한 문제입니다.
-
-
-
+            //         첫 스테이지는 현재진행형에 관한 문제입니다.
 
 
 
-                Press<color=#ff3333ff> [Enter] </color>to Continue";
+
+
+
+            //     Press<color=#ff3333ff> [Enter] </color>to Continue";
             GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
         }
 

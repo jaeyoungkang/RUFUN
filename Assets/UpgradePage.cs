@@ -7,6 +7,8 @@
     public class UpgradePage : MonoBehaviour
     {
         public float powerValue = 10;
+		public float speedValue = 10;
+		public float timeValue = 10;
 
         // Use this for initialization
         void Start()
@@ -16,15 +18,17 @@
 
         public void OnClickPower()
         {
-            DemoStage.Main.Power += powerValue;
+            DemoStage.Main.AddPower += powerValue;
             CloseWin();
         }
         public void OnClickSpeed()
         {
+			DemoStage.Main.AddSpeed += speedValue;
             CloseWin();
         }
         public void OnClickTime()
         {
+			DemoStage.Main.AddTime += timeValue;
             CloseWin();
         }
 

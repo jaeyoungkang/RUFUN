@@ -357,7 +357,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		if (Attacking || AniDash) {
 			return;
 		}
-		Vector2 v = Vector2.ClampMagnitude(dir, 1f) * speed;
+		Vector2 v = Vector2.ClampMagnitude(dir, 1f) * (speed + DemoStage.Main.AddSpeed);
 		AimVelocity.x = v.x;
 		AimVelocity.z = v.y;
 	}

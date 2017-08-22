@@ -183,7 +183,7 @@ public class Weapon : Item {
 			r = chc.radius;
 		}
         
-            MakeAttack(tf, h, r, WeaponInfo.Damage + DemoStage.Main.Power, false);
+            MakeAttack(tf, h, r, WeaponInfo.Damage + DemoStage.Main.AddPower, false);
         }
 
 

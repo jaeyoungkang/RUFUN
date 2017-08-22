@@ -15,7 +15,9 @@
         private float bossDamageTimeInit = 10f;
         private float bossDamageTime;
 
-        public float Power = 1;
+        public float AddPower = 0;
+        public float AddSpeed = 0;
+        public float AddTime = 0;
 
 
 
@@ -123,23 +125,6 @@
             firstPage = true;
             GameOverUI.gameObject.SetActive(true);
             startMsg.SetActive(true);
-
-			// GameOverMSG.text = @"<size=45>히트 앤드 런</size>
-
-
-
-            //             정답을 몬스터를  때려서 맞추세요
-
-
-            //         첫 스테이지는 현재진행형에 관한 문제입니다.
-
-
-
-
-
-
-            //     Press<color=#ff3333ff> [Enter] </color>to Continue";
-            GameOverUI.GetComponent<Image>().color = new Color(0.3f, 0.05f, 0.05f, 0.6f);
         }
 
 

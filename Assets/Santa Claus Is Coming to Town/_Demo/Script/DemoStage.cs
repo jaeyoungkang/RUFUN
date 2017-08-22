@@ -44,7 +44,7 @@
         {
             get{
                 // return question.Length;
-                return 1;
+                return 2;   //temp
             }
         }
         static public int numOfQuiz;
@@ -105,6 +105,7 @@
         public int INIT_LIFE = 5;
 
         public GameObject startMsg;
+        public UpgradePage upgradePage;
 
         void Awake () {
 			Main = this;
@@ -481,6 +482,10 @@ Press <size=50><color=#cc3333ff>[ESC]</color></size> to Continue",
             {
                 numOfQuiz = numOfQuiz_init;
                 SetupBossStage();
+            }
+            else
+            {
+                upgradePage.gameObject.SetActive(true);
             }
         }
 

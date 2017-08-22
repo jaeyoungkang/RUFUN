@@ -128,6 +128,7 @@
             GameOverUI.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.5f);
             startMsg.SetActive(true);
             Messsage.text = "";
+            GameOverMSG.text = "";
         }
 
 

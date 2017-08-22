@@ -151,7 +151,7 @@ public sealed class PlayerBehaviour : CharacterBehaviour {
 			base.WalkDependCamera(AimMove);
 		}*/
 
-		base.RunDependCamera(AimMove);
+		base.RunDependCamera(AimMove, DemoStage.Main.AddSpeed);
 
 		if (AimMove != Vector2.zero) {
 			AimRotation = Quaternion.Lerp(AimRotation, Quaternion.Euler(

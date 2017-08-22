@@ -377,7 +377,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		Vector3 v = Camera.main.transform.up * dir.y + Camera.main.transform.forward * dir.y + Camera.main.transform.right * dir.x;
 		v.y = 0f;
 		v.Normalize();
-		v *= (speed+ DemoStage.Main.AddSpeed);
+		v *= speed;
 		AimVelocity.x = v.x;
 		AimVelocity.z = v.z;
 	}
@@ -404,8 +404,8 @@ public class CharacterBehaviour : MonoBehaviour {
 	/// Move this character as it's run-speed.
 	/// </summary>
 	/// <param name="dir">moving direction relative to the MainCamera</param>
-	public void RunDependCamera (Vector2 dir) {
-		MoveDependCamera(dir, behaviourSetting.RunSpeed);
+	public void RunDependCamera (Vector2 dir, float addSpeed = 0.0f) {
+		MoveDependCamera(dir, behaviourSetting.RunSpeed + addSpeed);
 	}
 
 

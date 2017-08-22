@@ -225,16 +225,16 @@
             string quizMsg = "<size=15>" + question[currentQuiz] + "</size>";
             if (bossDamageImmune)
             {
-                DemoStage.Main.MessageBoss.text = quizMsg + "\n면역!\n문제를 풀어야 면역이 풀림";
+                MessageBoss.text = quizMsg + "\n면역!\n문제를 풀어야 면역이 풀림";
             }
             else
             {
-                DemoStage.Main.MessageBoss.text = bossDamageTime.ToString("n0");
+                MessageBoss.text = bossDamageTime.ToString("n0");
             }
         }
 
 		void Update () {
-            DemoStage.Main.MessageBoss.text = "";
+            MessageBoss.text = "";
 
 
             if (Playing)

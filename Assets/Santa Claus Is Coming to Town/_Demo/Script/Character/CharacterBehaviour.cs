@@ -357,7 +357,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		if (Attacking || AniDash) {
 			return;
 		}
-		Vector2 v = Vector2.ClampMagnitude(dir, 1f) * (speed + DemoStage.Main.AddSpeed);
+		Vector2 v = Vector2.ClampMagnitude(dir, 1f) * speed;
 		AimVelocity.x = v.x;
 		AimVelocity.z = v.y;
 	}
@@ -377,7 +377,7 @@ public class CharacterBehaviour : MonoBehaviour {
 		Vector3 v = Camera.main.transform.up * dir.y + Camera.main.transform.forward * dir.y + Camera.main.transform.right * dir.x;
 		v.y = 0f;
 		v.Normalize();
-		v *= speed;
+		v *= (speed+ DemoStage.Main.AddSpeed);
 		AimVelocity.x = v.x;
 		AimVelocity.z = v.z;
 	}

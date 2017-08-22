@@ -197,7 +197,7 @@
         {
             bossPlaying = true;
             bossDamageTime = bossDamageTimeInit;
-            timeLeft = timeOfBoss;
+            timeLeft = (timeOfBoss + AddTime);
             SpawnBoss();
             for(int i=0;i<answer.Length;i++)
             {

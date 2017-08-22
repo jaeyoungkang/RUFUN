@@ -7,7 +7,7 @@
     public class UpgradePage : MonoBehaviour
     {
         public float powerValue = 10;
-		public float speedValue = 100;
+		public float speedValue = 10;
 		public float timeValue = 10;
 
         // Use this for initialization
